@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--    windows下路径, D:\downloads\xxx.jar-->
+    <classPathEntry
+            location="C:\Users\windows\.m2\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--        不再追加xml内容-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/Pay?characterEncoding=utf-8"
+                        userId="root"
+                        password="20030515">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--告诉Mybatis-Generator你的实体类要放到哪-->
+        <javaModelGenerator targetPackage="com.hanlinyuan.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <!--            <property name="trimStrings" value="true" />-->
+        </javaModelGenerator>
+        <!--告诉Mybatis-Generator生成的mapper.xml文件要存放的位置-->
+        <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 对于Mybatis来说，即生成Mapper接口，注意，如果没有配置该元素，那么默认不会生成Mapper接口
+            targetPackage/targetProject:同javaModelGenerator
+            type：选择怎么生成mapper接口（在MyBatis3/MyBatis3Simple下）：
+                1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML；
+                2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中；
+                3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
+            注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hanlinyuan.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 这里就是告诉Mybatis-Generator要快速生成哪个表的Mapper了，其中domainObjectName就是生成的实体POJO类的名字
+             后面的参数就请各位自行搜索一下吧 -->
+        <!--<table tableName="mall_order" domainObjectName="Order" enableCountByExample="false"-->
+        <!--       enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--<table tableName="mall_order_item" domainObjectName="OrderItem" enableCountByExample="false"-->
+        <!--       enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--<table tableName="mall_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false"-->
+        <!--       enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--<table tableName="mall_category" domainObjectName="Category" enableCountByExample="false"-->
+        <!--       enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <table tableName="mall_product" domainObjectName="Product" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
+            <columnOverride column="detail" jdbcType="VARCHAR"/>
+            <columnOverride column="sub_images" jdbcType="VARCHAR"/>
+        </table>
+        <!--<table tableName="mall_shipping" domainObjectName="Shipping" enableCountByExample="false"-->
+        <!--       enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--<table tableName="mall_pay_info" domainObjectName="PayInfo" enableCountByExample="false"-->
+        <!--       enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+
+    </context>
+</generatorConfiguration>
