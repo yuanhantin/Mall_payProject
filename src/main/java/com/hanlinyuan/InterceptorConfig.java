@@ -16,6 +16,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration interceptorRegistration = registry.addInterceptor(new UserLoginInterceptor());
         interceptorRegistration.addPathPatterns("/**");         //拦截全部的路径
-        interceptorRegistration.excludePathPatterns("/user/login","/user/register", "/testcategory","/products/*","/carts","/error");    //但是注册和登录不要拦截
+        interceptorRegistration.excludePathPatterns("/user/login","/user/register", "/testcategory","/products/*","/error");    //但是注册和登录不要拦截
     }
 }

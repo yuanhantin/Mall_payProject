@@ -2,6 +2,7 @@ package com.hanlinyuan.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.hanlinyuan.Enum.ResponseEnum;
 import com.hanlinyuan.form.CartAddForm;
 import com.hanlinyuan.form.CartUpdateForm;
 import com.hanlinyuan.pay_wechat.MallApplicationTests;
@@ -57,5 +58,26 @@ public class cartServiceTest extends MallApplicationTests {
         log.info("【删除购物车...】");
         ResponseVo<CartVo> responseVo = cartService.delete(1, 26);
         log.info("result={}", gson.toJson(responseVo));
+    }
+
+    @Test
+    public void selectAll() {
+        ResponseVo<CartVo> responseVo = cartService.selectAll(1);
+        log.info("result={}", gson.toJson(responseVo));
+        //Assert.assertEquals(ResponseEnum.SUCCESS.getCode(), responseVo.getStatus());
+    }
+
+    @Test
+    public void unSelectAll() {
+        ResponseVo<CartVo> responseVo = cartService.unSelectAll(1);
+        log.info("result={}", gson.toJson(responseVo));
+       // Assert.assertEquals(ResponseEnum.SUCCESS.getCode(), responseVo.getStatus());
+    }
+
+    @Test
+    public void sum() {
+        ResponseVo<Integer> responseVo = cartService.sum(1);
+        log.info("result={}", gson.toJson(responseVo));
+        //Assert.assertEquals(ResponseEnum.SUCCESS.getCode(), responseVo.getStatus());
     }
 }
