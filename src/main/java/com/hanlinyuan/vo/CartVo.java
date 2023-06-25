@@ -3,53 +3,20 @@ package com.hanlinyuan.vo;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Author: 翰林猿
- * @Description: TODO
+ * @Description: 购物车list的Vo类
  **/
 @Data
 public class CartVo {
 
-	private Integer productId;
+	private List<CartProductVo> cartProductVoList;
 
-	/**
-	 * 购买的数量
-	 */
-	private Integer quantity;
+	private Boolean selectedAll;
 
-	private String productName;
+	private BigDecimal cartTotalPrice;
 
-	private String productSubtitle;
-
-	private String productMainImage;
-
-	private BigDecimal productPrice;
-
-	private Integer productStatus;
-
-	/**
-	 * 等于 quantity * productPrice
-	 */
-	private BigDecimal productTotalPrice;
-
-	private Integer productStock;
-
-	/**
-	 * 商品是否选中
-	 */
-	private Boolean productSelected;
-
-	public CartVo(Integer productId, Integer quantity, String productName, String productSubtitle, String productMainImage, BigDecimal productPrice, Integer productStatus, BigDecimal productTotalPrice, Integer productStock, Boolean productSelected) {
-		this.productId = productId;
-		this.quantity = quantity;
-		this.productName = productName;
-		this.productSubtitle = productSubtitle;
-		this.productMainImage = productMainImage;
-		this.productPrice = productPrice;
-		this.productStatus = productStatus;
-		this.productTotalPrice = productTotalPrice;
-		this.productStock = productStock;
-		this.productSelected = productSelected;
-	}
+	private Integer cartTotalQuantity;
 }

@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * @Author: 翰林猿
- * @Description: 用于返回注册时需要的json对象
+ * @Description: 用于返回注册时的数据传输对象（DTO）Data Transfer Object
  **/
 @Data
 public class userRegisterForm {

@@ -29,25 +29,25 @@ public class userController {
     @Autowired
     private userService userService;
     @PostMapping("/user/register")
-    public ResponseVo Register(@Valid @RequestBody userRegisterForm userRegisterForm, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            //输出出错的字段的message信息
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            log.error("注册提交的参数有误，{},{}",bindingResult.getFieldError().getField(),
-                    bindingResult.getFieldError().getDefaultMessage());
-
-            return ResponseVo.error(ResponseEnum.PARAM_ERROR,bindingResult);
-        }
+    public ResponseVo Register(@Valid @RequestBody userRegisterForm userRegisterForm){
+//        if (bindingResult.hasErrors()){
+//            //输出出错的字段的message信息
+//            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+//            log.error("注册提交的参数有误，{},{}",bindingResult.getFieldError().getField(),
+//                    bindingResult.getFieldError().getDefaultMessage());
+//
+//            return ResponseVo.error(ResponseEnum.PARAM_ERROR,bindingResult);
+//        }
         User user = new User();
         BeanUtils.copyProperties(userRegisterForm, user);
         return userService.register(user);
     }
 
     @PostMapping("/user/login")
-    public ResponseVo login(@Valid @RequestBody userLoginForm userLoginForm, BindingResult bindingResult, HttpSession httpSession){
-        if (bindingResult.hasErrors()){
-            return ResponseVo.error(ResponseEnum.PARAM_ERROR,bindingResult);
-        }
+    public ResponseVo login(@Valid @RequestBody userLoginForm userLoginForm, HttpSession httpSession){
+//        if (bindingResult.hasErrors()){
+//            return ResponseVo.error(ResponseEnum.PARAM_ERROR,bindingResult);
+//        }
         ResponseVo userResponseVo = userService.login(userLoginForm.getUsername(), userLoginForm.getPassword());
         //我们获取到用户之后，要给用户设置session,这样就能判断用户是否登录，登陆了之后才能做一些其他业务操作。
         httpSession.setAttribute(CURRENT_USER,userResponseVo.getData());

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @Author: 翰林猿
- * @Description: TODO
+ * @Description: 分类表的 Vo类
  **/
 @Data
 public class CategoryVo {

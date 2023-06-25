@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 /**
  * @Author: 翰林猿
- * @Description: 添加商品的表单
+ * @Description: 添加商品的数据传输对象（DTO）Data Transfer Object
  **/
 
 @Data

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * @Author: 翰林猿
- * @Description: 与前端约定好的要返回的Json格式类
+ * @Description: 与前端约定好的Vo类
  **/
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)      //去掉为空的值再返回给前端
@@ -48,6 +48,7 @@ public class ResponseVo<T> {
     }
 
     public static <T> ResponseVo<T> error(ResponseEnum responseEnum, BindingResult bindingResult) {
+        System.out.println("1");
         return new ResponseVo<>(responseEnum.getCode(),
                 Objects.requireNonNull(bindingResult.getFieldError()).getField() + " " + bindingResult.getFieldError().getDefaultMessage());
     }

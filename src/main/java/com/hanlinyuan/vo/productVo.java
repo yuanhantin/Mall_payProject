@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 /**
  * @Author: 翰林猿
- * @Description: TODO
+ * @Description: Vo类
  **/
 @Data
 public class productVo {
