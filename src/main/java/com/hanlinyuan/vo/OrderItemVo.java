@@ -5,9 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * Created by 廖师兄
- */
+
 @Data
 public class OrderItemVo {
 

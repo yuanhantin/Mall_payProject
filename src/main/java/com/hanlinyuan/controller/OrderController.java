@@ -15,9 +15,7 @@ import javax.validation.Valid;
 
 import static com.hanlinyuan.Const.mallConst.CURRENT_USER;
 
-/**
- * Created by 廖师兄
- */
+
 @RestController
 public class OrderController {
 
