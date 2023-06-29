@@ -85,7 +85,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>mall</finalName>
+        <finalName>mall127</finalName>
     </build>
 
 </project>

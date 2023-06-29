@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 /**
  * @Author: 翰林猿
- * @Description: 购物车产品Vo类
+ * @Description: 购物车产品Vo类  	(创建vo类的目的是
  **/
 @Data
 public class CartProductVo {
