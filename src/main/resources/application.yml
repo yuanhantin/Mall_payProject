@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 20030515
+    url: jdbc:mysql://localhost:3306/pay?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+  rabbitmq:
+    addresses: 47.115.208.217
+    port: 5672
+    username: guest
+    password: guest
+logging:
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
+
+wx:
+  appId: wx3e6b9f1c5a7ff034
+  mchId: 1614433647
+  mchKey: Aa111111111122222222223333333333
+  notifyUrl: http://47.115.208.217/pay/notify
+  returnUrl: http://47.115.208.217/#/order/list
