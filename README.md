@@ -1,1 +1,2 @@
-# wx_payProject
+# 电商支付实战项目
+本项目使用 SpringBoot + MyBatis + MySQL + Redis + RocketMQ 进行系统的搭建，该项目是高仿微电商系统+通用支付系统的双系统项目，实现了支付、购物车、商品管理、用户管理、订单管理、地址管理等。 
